@@ -1,0 +1,142 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*
+    Custom styles of the page
+*/
+
+@font-face {
+    font-family: CustomFont;
+    src: url('../fonts/Bangers.ttf');
+}
+
+body {
+    background-color: lightgray;
+    font-family: CustomFont;
+    min-width: 270px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1.lead-heading {
+    font-size: 48px;
+}
+
+div#top-menu {
+    width: auto;
+    min-height: 200px;
+    text-align: left;
+    padding-top: 15px;
+    padding-left: 40px;
+    padding-bottom: 15px;
+    border: 7px outset white;
+    border-radius: 0 0 25% 25%;
+    background-image: url("../res/header2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+
+div#aside-menu {
+    display: inline-block;
+    width:30%;
+    float: left;
+}
+
+ul#locations-list {
+    font-family: Georgia sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+ul#locations-list li {
+    margin-top: 7px;
+    border: 4px outset lawngreen;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: darkslategrey;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+ul#locations-list li a {
+    text-decoration: none;
+    color: lawngreen;
+}
+
+div#content {
+    border:3px outset lawngreen;
+    display: inline-block;
+    width: 65%;
+    float: right;
+}
+
+ {
+    width:100%;
+}
+
+select#article-selector {
+    right: 10px;
+    top: 8px;
+    width: 100%;
+    height: 35px;
+    color: white;
+    font-size: large;
+    background-color: darkslategrey;
+}
+
+section#article-container {
+    border: 4px outset dimgray;
+}
+
+div#article-container-header p {
+    text-align: center;
+    background-color: greenyellow;
+    padding: 5px;
+}
