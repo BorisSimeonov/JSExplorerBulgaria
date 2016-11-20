@@ -13,35 +13,34 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+figure, figcaption, footer, header,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+footer, header, menu, nav, section {
     display: block;
 }
+
 body {
     line-height: 1;
 }
+
 ol, ul {
     list-style: none;
 }
+
 blockquote, q {
     quotes: none;
 }
+
 blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -56,13 +55,24 @@ table {
     src: url('../fonts/Bangers.ttf');
 }
 
+@font-face {
+    font-family: NormalArticle;
+    src: url('../fonts/DroidSerif.ttf');
+}
+
+@font-face {
+    font-family: BoldItalicHeader;
+    src: url('../fonts/DroidSerif-BoldItalic.ttf');
+}
+
 body {
     background-color: lightgray;
-    font-family: CustomFont;
+    font-family: CustomFont, sans-serif;
     min-width: 270px;
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
 h1.lead-heading {
@@ -78,15 +88,14 @@ div#top-menu {
     padding-bottom: 15px;
     border: 7px outset white;
     border-radius: 0 0 25% 25%;
-    background-image: url("../res/header2.jpg");
-    background-repeat: no-repeat;
+    background: url("../res/header2.jpg") no-repeat;
     background-size: cover;
     color: white;
 }
 
 div#aside-menu {
     display: inline-block;
-    width:30%;
+    width: 30%;
     float: left;
 }
 
@@ -110,15 +119,16 @@ ul#locations-list li a {
     color: lawngreen;
 }
 
+ul#locations-list li a:hover {
+    color: gold;
+    font-style: italic;
+}
+
 div#content {
-    border:3px outset lawngreen;
+    border: 3px outset lawngreen;
     display: inline-block;
     width: 65%;
     float: right;
-}
-
- {
-    width:100%;
 }
 
 select#article-selector {
@@ -129,14 +139,56 @@ select#article-selector {
     color: white;
     font-size: large;
     background-color: darkslategrey;
+    text-align: center;
 }
 
-section#article-container {
-    border: 4px outset dimgray;
-}
-
-div#article-container-header p {
+div#article-container-header {
     text-align: center;
     background-color: greenyellow;
-    padding: 5px;
+    border: 2px outset black;
+    border-radius: 10px 10px 40px 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: CustomFont, sans-serif;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+div#article-container-header:hover {
+    background-color: black;
+    color: lawngreen;
+    border-color: lawngreen;
+}
+
+.article-header {
+    font-family: BoldItalicHeader, sans-serif;
+    font-size: 28px;
+    text-align: center;
+    color: green;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.article-description, .article-main-text {
+    margin: 15px;
+    text-align: justify;
+    font-family: NormalArticle, sans-serif;
+}
+
+img.lead-image {
+    width: 80%;
+}
+
+img.trail-image {
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrapper {
+    display: inline-table;
+    margin: 10px;
+    width: 40px;
+    height: 40px;
 }

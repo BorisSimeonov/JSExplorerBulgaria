@@ -20,15 +20,16 @@
     </div>
     <div id="content">
         <div id="select-container">
-
-        </div>
-        <section id="article-container">
+            <select id="article-selector">
+                <option>Please choose location from the menu</option>
+            </select>
             <div id="article-container-header">
-                <p>Choose location form the navigation menu and than pick the article from the drop-down menu above.</p>
+                <label for="article-selector">
+                    Choose location form the navigation menu and than pick the article from the drop-down menu.
+                </label>
             </div>
-            <div id="article-content">
-            </div>
-        </section>
+        </div>
+        <div id="article-holder"></div>
     </div>
 </section>
 <script>loadLocations()</script>
