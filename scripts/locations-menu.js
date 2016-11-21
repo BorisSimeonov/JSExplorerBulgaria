@@ -3,6 +3,7 @@ function loadLocations() {
         mountainsUrl = baseUrl + '/locations',
         municipalityUrl = baseUrl + '/municipality',
         articlesUrl = baseUrl + '/articles',
+        baseImageUrl = 'https://baas.kinvey.com/blob/kid_HJiZXC6bx?query=',
         username = 'test',
         password = 'test',
         base64auth = btoa(`${username}:${password}`),
@@ -94,16 +95,29 @@ function loadLocations() {
 
     function loadArticle() {
         let selectedArticleId = $(this).find(':selected').val();
+        let loadArticleData = $.get({
+                url: articlesUrl + `?query={"_id":"${selectedArticleId}"}`,
+                headers: authHeaders
+            }),
+            loadArticleLeadImage = $.get({
+                url: baseImageUrl + `{"article_id": "${selectedArticleId}", "type":"lead"}`,
+                headers: authHeaders
+            }),
+            loadArticleTrailImages = $.get({
+                url: baseImageUrl + `{"article_id": "${selectedArticleId}", "type":"trail"}`,
+                headers: authHeaders
+            });
 
-        $.get({
-            url: articlesUrl + `?query={"_id":"${selectedArticleId}"}`,
-            headers: authHeaders
-        })
+        Promise.all([loadArticleData,
+            loadArticleLeadImage, loadArticleTrailImages])
             .then(drawArticle)
             .catch(handleError);
     }
 
-    function drawArticle(article) {
+    function drawArticle([article, leadImageArray, trailImageArray]) {
+        let leadImage = leadImageArray.length ? leadImageArray[0]._downloadURL : undefined,
+            trailingImagesUrls = (trailImageArray.length) ? trailImageArray.map(instance => instance._downloadURL) : undefined;
+
         articleHolder.empty();
         article = article[0];
         let articleHTML = $('<article>')
@@ -114,7 +128,7 @@ function loadLocations() {
                 .text(article.title))
             .append($('<img>')
                 .addClass('lead-image')
-                .attr('src', article.leading_image_url)
+                .attr('src', leadImage)
                 .attr('alt', 'No Image'))
             .append($('<p>')
                 .addClass('article-description')
@@ -123,16 +137,15 @@ function loadLocations() {
                 .addClass('article-main-text')
                 .text(article.text));
 
-        let imageLocations = article.trailing_images
-            .split(',')
-            .filter(linkString => linkString);
-        imageLocations.forEach((img_link) => {
-            articleHTML.append($('<div class="image-wrapper">').append($('<img>')
-                .addClass('trail-image')
-                .attr('src', img_link)
-                .attr('alt', 'No Image'))
-                .on('click', imageResizeOnClick));
-        });
+        if (trailingImagesUrls) {
+            trailingImagesUrls.forEach((img_link) => {
+                articleHTML.append($('<div class="image-wrapper">').append($('<img>')
+                    .addClass('trail-image')
+                    .attr('src', img_link)
+                    .attr('alt', 'No Image'))
+                    .on('click', imageResizeOnClick));
+            });
+        }
 
         articleHolder.append(articleHTML);
     }
