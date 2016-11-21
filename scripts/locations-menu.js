@@ -158,14 +158,14 @@ function loadLocations() {
                 .css('height', 'auto')
                 .css('margin-left', 'auto')
                 .css('margin-right', 'auto')
-                .css('display', 'inherit');
+                .css('display', 'block');
         } else {
             imageWrapper
                 .css('width', '40px')
                 .css('height', '40px')
                 .css('margin-left', '10px')
                 .css('margin-right', '10px')
-                .css('display', 'inline-table');
+                .css('display', 'inline-block');
         }
 
 
