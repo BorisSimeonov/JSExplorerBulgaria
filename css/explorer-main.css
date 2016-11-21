@@ -24,7 +24,7 @@ time, mark, audio, video {
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, menu, nav, section {
-    display: block;
+    display: inline-block;
 }
 
 body {
@@ -93,52 +93,61 @@ div#top-menu {
     color: white;
 }
 
-div#aside-menu {
+section#aside-menu {
     display: inline-block;
-    width: 30%;
+    width: 20%;
     float: left;
+    text-align: center;
 }
 
-ul#locations-list {
+ul.location-list {
     font-family: Georgia sans-serif;
     font-size: 20px;
     text-align: center;
 }
 
-ul#locations-list li {
-    margin-top: 7px;
+ul.location-list li {
+    margin-top: 5px;
+    margin-bottom: 2px;
     border: 4px outset lawngreen;
     border-radius: 50%;
     padding: 10px;
-    background-color: darkslategrey;
+    background-color: white;
     box-shadow: 10px 10px 5px #888888;
 }
 
-ul#locations-list li a {
+ul.location-list li a {
     text-decoration: none;
-    color: lawngreen;
+    color: green;
 }
 
-ul#locations-list li a:hover {
-    color: gold;
+ul.location-list li a:hover {
+    color: royalblue;
     font-style: italic;
 }
 
-div#content {
-    border: 3px outset lawngreen;
+section#content {
     display: inline-block;
-    width: 65%;
+    width: 78%;
     float: right;
+}
+
+div#article-holder {
+    border-bottom: 3px dotted white;
+    border-right: 3px dotted white;
 }
 
 select#article-selector {
     right: 10px;
     top: 8px;
-    width: 100%;
-    height: 35px;
-    color: white;
+    width: 95%;
+    height: 40px;
+    color: green;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: large;
-    background-color: darkslategrey;
+    border: 3px outset lawngreen;
+    background-color: white;
     text-align: center;
 }
 
@@ -191,4 +200,13 @@ img.trail-image {
     margin: 10px;
     width: 40px;
     height: 40px;
+}
+
+img.main-menu-icon {
+    width: 90%;
+}
+
+img.main-menu-sub-icon {
+    width: 30%;
+    display: inline-block;
 }

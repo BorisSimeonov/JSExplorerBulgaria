@@ -14,11 +14,30 @@
     </h1>
 </div>
 <section>
-    <div id="aside-menu">
-        <ul id="locations-list">
+    <section id="aside-menu">
+        <ul id="main-menu">
+            <li>
+                <ul id="main-locations">
+                    <img id="locations-icon" relatedNodeID="main-mountain-locations,main-village-locations" class="main-menu-icon" src="res/icons/locations.png" alt="Locations">
+                    <li id="main-mountain-locations" style="display: none">
+                        <img class="main-menu-sub-icon" relatedNodeID="mountain-locations-list" src="res/icons/nature.png" alt="Nature">
+                        <ul id="mountain-locations-list" style="display: none" class="location-list" ></ul>
+                    </li>
+                    <li class="main-menu-icon" id="main-village-locations" style="display: none">
+                        <img class="main-menu-sub-icon" relatedNodeID="village-locations-list" src="res/icons/villages.png" alt="Villages">
+                        <ul id="village-locations-list" style="display: none" class="location-list" ></ul>
+                    </li>
+                </ul>
+            </li>
+            <li id="main-menu-search">
+                <img class="main-menu-icon" src="res/icons/search.png" alt="Search">
+            </li>
+            <li id="main-menu-comments">
+                <img class="main-menu-icon" src="res/icons/comments.png" alt="Comments">
+            </li>
         </ul>
-    </div>
-    <div id="content">
+    </section>
+    <section id="content">
         <div id="select-container">
             <select id="article-selector">
                 <option>Please choose location from the menu</option>
@@ -30,7 +49,7 @@
             </div>
         </div>
         <div id="article-holder"></div>
-    </div>
+    </section>
 </section>
 <script>loadLocations()</script>
 </body>
