@@ -1,26 +1,58 @@
 function loadLocations() {
+    //Backend hyperlink constants
     const baseUrl = 'https://baas.kinvey.com/appdata/kid_HJiZXC6bx',
         mountainsUrl = baseUrl + '/locations',
         municipalityUrl = baseUrl + '/municipality',
         articlesUrl = baseUrl + '/articles',
-        baseImageUrl = 'https://baas.kinvey.com/blob/kid_HJiZXC6bx?query=',
-        username = 'test',
-        password = 'test',
-        base64auth = btoa(`${username}:${password}`),
-        authHeaders = {"Authorization": "Basic " + base64auth},
-        mainList = $('#main-locations'),
+        baseImageUrl = 'https://baas.kinvey.com/blob/kid_HJiZXC6bx?query=';
+    //User credentials constants
+    const username = 'guest',
+        password = 'guest',
+        authHeaders = {"Authorization": "Basic " + btoa(`${username}:${password}`)};
+    //JQuery DOM element constants
+    const mainList = $('#main-locations'),
         mountainLocationsListId = 'mountain-locations-list',
         mountainList = $(`#${mountainLocationsListId}`),
         municipalityLocationsListId = 'village-locations-list',
         municipalityList = $(`#${municipalityLocationsListId}`),
         articleHolder = $('#article-holder'),
         locationSelectDropDown = $('#article-selector'),
-        trailImagesCropSize = 40;
+        contentSection = $('#content'),
+        searchSection = $('#search'),
+        feedbackSection = $('#chat');
+    //Environment constants
+    const trailImagesCropSize = 40;
 
 
     mainList.on('click', '.location-item', listArticlesOptions);
     mainList.on('click', 'img', toggleDOMElements);
     locationSelectDropDown.on('change', loadArticle);
+    $('#main-menu').on('click', '#search-icon, #comment-icon, #locations-icon', toggleSelectedSection);
+
+
+    function toggleSelectedSection() {
+        switch (this.id) {
+            case 'search-icon':
+                searchSection.css('display', 'inline-block');
+                feedbackSection.css('display', 'none');
+                contentSection.css('display', 'none');
+                break;
+            case 'comment-icon':
+                feedbackSection.css('display', 'inline-block');
+                searchSection.css('display', 'none');
+                contentSection.css('display', 'none');
+                break;
+            case 'locations-icon':
+                contentSection.css('display', 'inline-block');
+                feedbackSection.css('display', 'none');
+                searchSection.css('display', 'none');
+                return;
+        }
+
+        //hides the locations list while the
+        //feedback or search sections are selected
+        mainList.children().filter('li').css('display', 'none');
+    }
 
     function requestLocations(tableUrl, destinationList) {
         $.get({
@@ -192,4 +224,6 @@ function loadLocations() {
                 .toggle();
         }
     }
+
+
 }

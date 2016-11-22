@@ -140,7 +140,7 @@ ul.location-list li a:hover {
     font-style: italic;
 }
 
-section#content {
+section#content, section#chat, section#search {
     display: inline-block;
     width: 78%;
     float: right;
