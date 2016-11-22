@@ -68,6 +68,7 @@ table {
 body {
     background-color: lightgray;
     font-family: CustomFont, sans-serif;
+    font-size: 110%;
     min-width: 270px;
     max-width: 1100px;
     margin-left: auto;
@@ -76,21 +77,33 @@ body {
 }
 
 h1.lead-heading {
-    font-size: 48px;
+    font-size: 40px;
+}
+
+h1.lead-heading span {
+    height: 45px;
+}
+
+h1.lead-heading span:hover {
+    font-size: 45px;
+}
+
+img.head-logo {
+    width: 40px;
 }
 
 div#top-menu {
     width: auto;
-    min-height: 200px;
-    text-align: left;
+    text-align: center;
     padding-top: 15px;
     padding-left: 40px;
     padding-bottom: 15px;
-    border: 7px outset white;
-    border-radius: 0 0 25% 25%;
-    background: url("../res/header2.jpg") no-repeat;
-    background-size: cover;
-    color: white;
+    border-bottom: 7px outset black;
+    border-left: 1px outset black;
+    border-right: 1px outset black;
+    border-radius: 0 0 150px 150px;
+    color: lawngreen;
+    background-color: snow;
 }
 
 section#aside-menu {
@@ -102,7 +115,7 @@ section#aside-menu {
 
 ul.location-list {
     font-family: Georgia sans-serif;
-    font-size: 20px;
+    font-size: 110%;
     text-align: center;
 }
 
@@ -114,6 +127,7 @@ ul.location-list li {
     padding: 10px;
     background-color: white;
     box-shadow: 10px 10px 5px #888888;
+    min-width: 60px;
 }
 
 ul.location-list li a {
@@ -122,7 +136,7 @@ ul.location-list li a {
 }
 
 ul.location-list li a:hover {
-    color: royalblue;
+    color: black;
     font-style: italic;
 }
 
@@ -130,6 +144,11 @@ section#content {
     display: inline-block;
     width: 78%;
     float: right;
+}
+
+section#content img {
+    border: 2px solid white;
+    border-radius: 10%;
 }
 
 div#article-holder {
@@ -146,29 +165,9 @@ select#article-selector {
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: large;
-    border: 3px outset lawngreen;
+    border: 3px outset black;
     background-color: white;
     text-align: center;
-}
-
-div#article-container-header {
-    text-align: center;
-    background-color: greenyellow;
-    border: 2px outset black;
-    border-radius: 10px 10px 40px 40px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-family: CustomFont, sans-serif;
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5px;
-}
-
-div#article-container-header:hover {
-    background-color: black;
-    color: lawngreen;
-    border-color: lawngreen;
 }
 
 .article-header {
@@ -208,4 +207,13 @@ img.main-menu-icon {
 img.main-menu-sub-icon {
     width: 30%;
     display: inline-block;
+}
+
+ul#main-menu {
+    font-size: 110%;
+}
+
+ul#main-menu li {
+    padding-top: 7px;
+    padding-bottom: 7px;
 }

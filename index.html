@@ -10,7 +10,10 @@
 <body>
 <div id="top-menu">
     <h1 class="lead-heading">
-        <span>EXPLORER</span> <span>Bulgaria</span>
+        <img src="res/traveler.png" class="head-logo">
+        <span>EXPLORER</span>
+        <span style="color: black;: black">Bulgaria</span>
+        <img src="res/traveler.png" class="head-logo">
     </h1>
 </div>
 <section>
@@ -18,6 +21,7 @@
         <ul id="main-menu">
             <li>
                 <ul id="main-locations">
+                    <label for="locations-icon">Locations</label>
                     <img id="locations-icon" relatedNodeID="main-mountain-locations,main-village-locations" class="main-menu-icon" src="res/icons/locations.png" alt="Locations">
                     <li id="main-mountain-locations" style="display: none">
                         <img class="main-menu-sub-icon" relatedNodeID="mountain-locations-list" src="res/icons/nature.png" alt="Nature">
@@ -30,10 +34,12 @@
                 </ul>
             </li>
             <li id="main-menu-search">
-                <img class="main-menu-icon" src="res/icons/search.png" alt="Search">
+                <label for="search-icon">Search</label>
+                <img id="search-icon" class="main-menu-icon" src="res/icons/search.png" alt="Search">
             </li>
             <li id="main-menu-comments">
-                <img class="main-menu-icon" src="res/icons/comments.png" alt="Comments">
+                <label for="comment-icon">Leave Feedback</label>
+                <img id="comment-icon" class="main-menu-icon" src="res/icons/comments.png" alt="Comments">
             </li>
         </ul>
     </section>
@@ -42,11 +48,6 @@
             <select id="article-selector">
                 <option>Please choose location from the menu</option>
             </select>
-            <div id="article-container-header">
-                <label for="article-selector">
-                    Choose location form the navigation menu and than pick the article from the drop-down menu.
-                </label>
-            </div>
         </div>
         <div id="article-holder"></div>
     </section>
